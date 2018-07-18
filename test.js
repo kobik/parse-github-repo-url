@@ -92,14 +92,8 @@ describe('gitlab urls', function () {
     assert.deepEqual(['user', 'test1', ''], parsed)
   })
 
-  it('parses https non-itlab url', function () {
-    var url = 'https://git.mycompany.com/user/test1.git'
-    var parsed = parse(url)
-    assert.deepEqual(['user', 'test1', ''], parsed)
-  })
-
-  it('parses https non-itlab url', function () {
-    var url = 'https://git.mycompany.local/user/test1.git'
+  it('parses https non-gitlab url', function () {
+    var url = 'https://mycompany.local/user/test1.git'
     var parsed = parse(url)
     assert.deepEqual(['user', 'test1', ''], parsed)
   })
