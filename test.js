@@ -92,6 +92,18 @@ describe('gitlab urls', function () {
     assert.deepEqual(['user', 'test1', ''], parsed)
   })
 
+  it('parses https non-itlab url', function () {
+    var url = 'https://git.mycompany.com/user/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user', 'test1', ''], parsed)
+  })
+
+  it('parses https non-itlab url', function () {
+    var url = 'https://git.mycompany.local/user/test1.git'
+    var parsed = parse(url)
+    assert.deepEqual(['user', 'test1', ''], parsed)
+  })
+
   it('parses git gitlab url', function () {
     var url = 'git@gitlab.com:user/test1.git'
     var parsed = parse(url)
@@ -129,7 +141,7 @@ describe('gitlab urls', function () {
   })
 
   it('parses subgroups in non-gitlab URLs', function () {
-    var url = 'git@gitlab.local:user/subgroup1/subgroup2/subgroup3/test1.git'
+    var url = 'git@git.team.local:user/subgroup1/subgroup2/subgroup3/test1.git'
     var parsed = parse(url)
     assert.deepEqual(['user/subgroup1/subgroup2/subgroup3', 'test1', ''], parsed)
   })
